@@ -9,68 +9,45 @@ import styles from './play.module.css';
 import LoadingAnimation from '../../components/loadingAnimation/loadingAnimation';
 
 export default function Play() {
-    const [challenges, setChallenges] = useState(null);
-    const [showSolvedChallenges, setShowSolvedChallenges] = useState(false);
-
     const { apiPostGetJsonAsTeam } = useFetch();
-    const { team, logoutTeam, fetchTeam } = useTeam();
+    const { fetchTeam } = useTeam();
 
-    const fetchChallenges = async () => {
-        const data = await apiPostGetJsonAsTeam('/rt22/challenges');
-        setChallenges(data.challenges);
+    const [formValues, setFormValues] = useState({
+        username: '',
+        password: ''
+    });
+
+    const handleChange = field => e => {
+        setFormValues({ ...formValues, [field]: e.target.value });
+        // console.log(formValues);
     };
 
-    useEffect(() => {
-        fetchChallenges();
-    }, []);
-
-    const qWasCorrect = () => {
-        fetchChallenges();
+    const submit = e => {
+        e.preventDefault();
+        apiPostGetJsonAsTeam('/bugbounty/login1', formValues);
         fetchTeam();
     };
 
     return (
         <>
-            <h1>Play</h1>
-            <h2>Instructions</h2>
-            <p>
-                The file/link in every challenge hides a flag, which is a string
-                of the format <code>{'rtf_{...}'}</code>
-            </p>
-            <h2>Challenges</h2>
-            <div>
-                <input
-                    type='checkbox'
-                    onChange={e => setShowSolvedChallenges(e.target.checked)}
-                />
-                <label>Show solved challenges</label>
-            </div>
-            <br />
-
-            {challenges ? (
-                <div className={styles.challenges}>
-                    {challenges
-                        .filter(c =>
-                            showSolvedChallenges
-                                ? true
-                                : !c.solvedBy.includes(team.name)
-                        )
-                        .map(c => (
-                            <ChallengeCard
-                                key={c.id}
-                                challenge={c}
-                                isSolved={
-                                    team
-                                        ? c.solvedBy.includes(team.name)
-                                        : false
-                                }
-                                qWasCorrect={qWasCorrect}
-                            />
-                        ))}
+            <form className='lug-form' onSubmit={submit}>
+                <div className='form-start'>Bug Bounty: Login</div>
+                <div className='form-field'>
+                    User: <input onChange={handleChange('username')} />
                 </div>
-            ) : (
-                <LoadingAnimation />
-            )}
+                <div className='form-field'>
+                    Password: <input onChange={handleChange('password')} />
+                </div>
+                <div className='form-end'>
+                    <button className='form-nav-button'>Submit</button>
+                </div>
+                <div style={{ display: 'none' }}>
+                    username: secret_administrator
+                </div>
+                <div style={{ display: 'none' }}>
+                    password: there-are-so-many-ways-to-inspect
+                </div>
+            </form>
         </>
     );
 }
