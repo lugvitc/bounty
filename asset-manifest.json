@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/ctf/static/css/main.227080c8.css",
-    "main.js": "/ctf/static/js/main.3cbdb00e.js",
-    "static/media/qubit.png": "/ctf/static/media/qubit.3fa3d8104a8c61185607.png",
-    "static/media/vit.png": "/ctf/static/media/vit.716f25e7957c15338a15.png",
-    "static/media/technovit.png": "/ctf/static/media/technovit.16d7453920dafe6d9908.png",
-    "static/media/lug.png": "/ctf/static/media/lug.5dbd07a4632428f4f303.png",
-    "static/media/qr.png": "/ctf/static/media/qr.7dba72a0c8e0b039a289.png",
-    "static/media/trc.png": "/ctf/static/media/trc.633b045e9550a7bccb1d.png",
-    "index.html": "/ctf/index.html",
-    "main.227080c8.css.map": "/ctf/static/css/main.227080c8.css.map",
-    "main.3cbdb00e.js.map": "/ctf/static/js/main.3cbdb00e.js.map"
+    "main.css": "/bounty/static/css/main.227080c8.css",
+    "main.js": "/bounty/static/js/main.95f97732.js",
+    "static/media/qubit.png": "/bounty/static/media/qubit.3fa3d8104a8c61185607.png",
+    "static/media/vit.png": "/bounty/static/media/vit.716f25e7957c15338a15.png",
+    "static/media/technovit.png": "/bounty/static/media/technovit.16d7453920dafe6d9908.png",
+    "static/media/lug.png": "/bounty/static/media/lug.5dbd07a4632428f4f303.png",
+    "static/media/qr.png": "/bounty/static/media/qr.7dba72a0c8e0b039a289.png",
+    "static/media/trc.png": "/bounty/static/media/trc.633b045e9550a7bccb1d.png",
+    "index.html": "/bounty/index.html",
+    "main.227080c8.css.map": "/bounty/static/css/main.227080c8.css.map",
+    "main.95f97732.js.map": "/bounty/static/js/main.95f97732.js.map"
   },
   "entrypoints": [
     "static/css/main.227080c8.css",
-    "static/js/main.3cbdb00e.js"
+    "static/js/main.95f97732.js"
   ]
 }
